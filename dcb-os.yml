@@ -1,6 +1,3 @@
-- alpine_3.13
-- alpine_3.14
-- alpine_edge
 - archlinux_latest
 - centos_8
 - debian_bullseye
