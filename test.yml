@@ -1,0 +1,10 @@
+---
+- hosts: all
+  roles:
+  - role: '{{ playbook_dir }}'
+  tasks:
+  - command: gradle --version
+    register: gradle_test_output
+  - name: gradle --version
+    debug:
+      msg: '{{ gradle_test_output.stdout }}'

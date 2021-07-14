@@ -1,5 +1,7 @@
 vmichel95.gradle
 =========
+![Build Status](https://github.com/andrewrothstein/ansible-gradle/actions/workflows/build.yml/badge.svg)
+
 
 Install [gradle](https://gradle.org/)
 
@@ -26,7 +28,7 @@ Example Playbook
 ```yml
 - hosts: servers
   roles:
-    - vmichel95.maven
+    - andrewrothstein.gradle
 ```
 
 License
@@ -38,3 +40,4 @@ Author Information
 ------------------
 
 Victor Michel <victormichel95@gmail.com>
+Andrew Rothstein <andrew.rothstein@gmail.com>
