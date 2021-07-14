@@ -3,30 +3,30 @@ galaxy_info:
   author: Victor Michel
   description: installs gradle
   company: BlackRock Financial Management
-  license: 
+  license:
     - MIT
   min_ansible_version: 2.0
-  galaxy_tags: 
+  galaxy_tags:
     - development
   platforms:
-  - name: Archlinux
-    versions:
-      - all
-  - name: Debian
-    versions:
-      - bullseye
-      - buster
-  - name: EL
-    versions:
-      - 8
-  - name: Fedora
-    versions:
-      - 34
-  - name: Ubuntu
-    versions:
-      - bionic
-      - focal
+    - name: Archlinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+    - name: EL
+      versions:
+        - 8
+    - name: Fedora
+      versions:
+        - 34
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
   role_name: gradle
 dependencies:
-- role: andrewrothstein.unarchive-deps
-  version: v1.2.0
+  - role: andrewrothstein.unarchive-deps
+    version: v1.2.0

@@ -1,6 +1,6 @@
 ---
 - name: look for gradle in {{ gradle_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ gradle_install_dir }}'
   changed_when: false
@@ -8,7 +8,7 @@
 - when: not gradle_binary.stat.exists
   block:
     - name: downloading {{ gradle_zip_url }}
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ gradle_zip_url }}'
@@ -17,23 +17,23 @@
         timeout: '{{ gradle_timeout_seconds }}'
         mode: 0644
     - name: unarchiving {{ gradle_tmp_zip }}
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ gradle_tmp_zip }}'
         dest: '{{ gradle_parent_install_dir }}'
         creates: '{{ gradle_install_dir }}'
   always:
     - name: rm {{ gradle_tmp_zip }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ gradle_tmp_zip }}'
         state: absent
 
 - name: linking {{ gradle_link }} to {{ gradle_exe }}
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ gradle_exe }}'

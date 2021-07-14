@@ -2,7 +2,7 @@
 gradle_name: 'gradle-{{ gradle_ver }}'
 gradle_zip: '{{ gradle_name }}-bin.zip'
 gradle_tmp_zip: /tmp/{{ gradle_zip }}
-gradle_zip_url:  '{{ gradle_mirror }}/{{ gradle_zip }}'
+gradle_zip_url: '{{ gradle_mirror }}/{{ gradle_zip }}'
 gradle_checksum: '{{ gradle_checksums[gradle_ver] }}'
 gradle_install_dir: '{{ gradle_parent_install_dir }}/{{ gradle_name }}'
 gradle_exe: '{{ gradle_install_dir }}/bin/gradle{{ gradle_dotexe | default("") }}'

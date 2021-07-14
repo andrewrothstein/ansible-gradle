@@ -1,4 +1,5 @@
 ---
-- homebrew:
+- name: installing gradle brew pkg
+  homebrew:
     name: gradle
     state: present
