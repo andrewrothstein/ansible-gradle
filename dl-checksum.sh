@@ -14,7 +14,7 @@ dl_ver()
     local url=$MIRROR/gradle-${ver}-bin.zip.sha256
 
     printf "  # %s\n" $url
-    printf "  '%s': sha256:%s\n" $ver $(curl -sSL $url)
+    printf "  '%s': sha256:%s\n" $ver $(curl -sSLf $url)
 }
 
-dl_ver ${1:-7.3.1}
+dl_ver ${1:-7.4}
