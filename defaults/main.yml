@@ -1,5 +1,5 @@
 ---
-gradle_ver: '7.5'
+gradle_ver: 7.5.1
 gradle_mirror: https://downloads.gradle-dn.com/distributions
 gradle_parent_install_dir: /usr/local
 gradle_timeout_seconds: 60
@@ -32,3 +32,5 @@ gradle_checksums:
   '7.4.2': sha256:29e49b10984e585d8118b7d0bc452f944e386458df27371b49b4ac1dec4b7fda
   # https://services.gradle.org/distributions/gradle-7.5-bin.zip.sha256
   '7.5': sha256:cb87f222c5585bd46838ad4db78463a5c5f3d336e5e2b98dc7c0c586527351c2
+  # https://services.gradle.org/distributions/gradle-7.5.1-bin.zip.sha256
+  '7.5.1': sha256:f6b8596b10cce501591e92f229816aa4046424f3b24d771751b06779d58c8ec4
