@@ -9,6 +9,9 @@ galaxy_info:
   galaxy_tags:
     - development
   platforms:
+    - name: Alpine
+      versions:
+        - all
     - name: Archlinux
       versions:
         - all

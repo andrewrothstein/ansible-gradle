@@ -11,5 +11,11 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-
+- name: install os dep pkgs
+  become: true
+  become_user: root
+  package:
+    state: present
+    name:
+      - findutils
 - include_tasks: '{{ gradle_installer | default("bin") }}.yml'
