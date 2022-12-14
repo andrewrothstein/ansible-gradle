@@ -1,11 +1,12 @@
 ---
 - hosts: all
-  roles:
-  - role: andrewrothstein.openjdk
+  vars:
     openjdk_app: jre
+  roles:
+  - role: andrewrothstein.temurin
   - role: '{{ playbook_dir }}'
   tasks:
-  - command: bash -l -c 'gradle --version'
+  - command: bash -lc 'gradle --version'
     register: gradle_test_output
   - name: gradle --version
     debug:
