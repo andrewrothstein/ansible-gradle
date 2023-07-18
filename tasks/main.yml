@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: andrewrothstein.unarchive-deps
+    name: andrewrothstein.unarchivedeps
 - include_role:
     name: andrewrothstein.bash
 - name: resolve platform specific vars
@@ -20,4 +20,5 @@
     state: present
     name:
       - findutils
-- include_tasks: '{{ gradle_installer | default("bin") }}.yml'
+- name: using installer {{ gradle_installer }}
+  include_tasks: '{{ gradle_installer | default("bin") }}.yml'
