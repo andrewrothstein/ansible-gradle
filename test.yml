@@ -1,13 +1,16 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.gradle
+  hosts: all
   vars:
     openjdk_app: jre
   roles:
-  - role: andrewrothstein.temurin
-  - role: '{{ playbook_dir }}'
+    - role: andrewrothstein.temurin
+    - role: '{{ playbook_dir }}'
   tasks:
-  - command: bash -lc 'gradle --version'
-    register: gradle_test_output
-  - name: gradle --version
-    debug:
-      msg: '{{ gradle_test_output.stdout }}'
+    - name: Executing 'gradle --version'
+      ansible.builtin.command: bash -lc 'gradle --version'
+      changed_when: false
+      register: gradle_test_output
+    - name: Output from 'gradle --version'
+      ansible.builtin.debug:
+        msg: '{{ gradle_test_output.stdout }}'

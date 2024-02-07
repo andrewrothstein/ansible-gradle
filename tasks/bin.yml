@@ -1,41 +1,42 @@
 ---
-- name: look for gradle in {{ gradle_install_dir }}
+- name: Look for gradle in {{ gradle_install_dir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ gradle_install_dir }}'
   changed_when: false
   register: gradle_binary
-- when: not gradle_binary.stat.exists
+- name: Downloading an installing gradle
+  when: not gradle_binary.stat.exists
   block:
-    - name: downloading {{ gradle_zip_url }}
+    - name: Downloading {{ gradle_zip_url }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ gradle_zip_url }}'
         dest: '{{ gradle_tmp_zip }}'
         checksum: '{{ gradle_checksum }}'
         timeout: '{{ gradle_timeout_seconds }}'
-        mode: 0644
-    - name: unarchiving {{ gradle_tmp_zip }}
+        mode: '644'
+    - name: Unarchiving {{ gradle_tmp_zip }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ gradle_tmp_zip }}'
         dest: '{{ gradle_parent_install_dir }}'
         creates: '{{ gradle_install_dir }}'
   always:
-    - name: rm {{ gradle_tmp_zip }}
+    - name: Rm {{ gradle_tmp_zip }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ gradle_tmp_zip }}'
         state: absent
 
-- name: linking {{ gradle_link }} to {{ gradle_exe }}
+- name: Linking {{ gradle_link }} to {{ gradle_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ gradle_exe }}'
     dest: '{{ gradle_link }}'
     state: link

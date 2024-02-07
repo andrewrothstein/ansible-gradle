@@ -1,10 +1,12 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- include_role:
+- name: Install andrewrothstein.bash
+  ansible.builtin.include_role:
     name: andrewrothstein.bash
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -13,12 +15,12 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: install os dep pkgs
+- name: Install os dep pkgs
   become: true
   become_user: root
-  package:
+  ansible.builtin.package:
     state: present
     name:
       - findutils
-- name: using installer {{ gradle_installer }}
-  include_tasks: '{{ gradle_installer | default("bin") }}.yml'
+- name: Using installer {{ gradle_installer }}
+  ansible.builtin.include_tasks: '{{ gradle_installer | default("bin") }}.yml'

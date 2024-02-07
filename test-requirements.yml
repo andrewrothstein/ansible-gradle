@@ -1,3 +1,2 @@
 ---
-roles:
-  - role: andrewrothstein.temurin
+- name: andrewrothstein.temurin

@@ -1,5 +1,5 @@
 ---
-gradle_ver: '8.5'
+gradle_ver: '8.6'
 gradle_mirror: https://downloads.gradle.org/distributions
 gradle_parent_install_dir: /usr/local
 gradle_timeout_seconds: 60
@@ -52,3 +52,5 @@ gradle_checksums:
   '8.4': sha256:3e1af3ae886920c3ac87f7a91f816c0c7c436f276a6eefdb3da152100fef72ae
   # https://services.gradle.org/distributions/gradle-8.5-bin.zip.sha256
   '8.5': sha256:9d926787066a081739e8200858338b4a69e837c3a821a33aca9db09dd4a41026
+  # https://services.gradle.org/distributions/gradle-8.6-bin.zip.sha256
+  '8.6': sha256:9631d53cf3e74bfa726893aee1f8994fee4e060c401335946dba2156f440f24c
