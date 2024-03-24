@@ -22,5 +22,5 @@
     state: present
     name:
       - findutils
-- name: Using installer {{ gradle_installer }}
+- name: Using installer {{ gradle_installer | default("bin") }}
   ansible.builtin.include_tasks: '{{ gradle_installer | default("bin") }}.yml'

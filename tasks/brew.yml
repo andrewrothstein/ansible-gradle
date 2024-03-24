@@ -1,5 +1,5 @@
 ---
 - name: Installing gradle brew pkg
-  ansible.builtin.homebrew:
+  community.general.homebrew:
     name: gradle
     state: present
