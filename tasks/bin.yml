@@ -17,6 +17,9 @@
         checksum: '{{ gradle_checksum }}'
         timeout: '{{ gradle_timeout_seconds }}'
         mode: '644'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
     - name: Unarchiving {{ gradle_tmp_zip }}
       become: true
       become_user: root
