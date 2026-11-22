@@ -3,10 +3,13 @@
   hosts: all
   vars:
     openjdk_app: jre
-  roles:
-    - role: andrewrothstein.temurin
-    - role: '{{ playbook_dir }}'
   tasks:
+    - name: Installing andrewrothstein.temurin
+      ansible.builtin.include_role:
+        name: andrewrothstein.temurin
+    - name: Installing gradle
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
     - name: Executing 'gradle --version'
       ansible.builtin.command: bash -lc 'gradle --version'
       changed_when: false
